@@ -1,0 +1,145 @@
+/* 
+Om du tittar på https://www.asics.com/se/sv-se/metaspeed-edge-paris/p/1013A124-400.html
+
+- (All kod ska ha svenska klassnamn)
+- Detta behöver vara klart inom en vecka!
+
+- Under skorna finns en lista med "+" man kan trycka på och så får man en dropdown med text.
+- Dropdown funktionen ska ha en css animation så upp och ned vid klick går mjukt.
+- Den ska ha 4 flikar med olika mängd text i sig.
+    - En flik ska ha en bild i sig
+    - En annan flik ska ha minst 900 ord. 
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #001e63;
+}
+
+.dragspelsmeny {
+    margin: 60px auto;
+    width: 600px;
+}
+
+.dragspelsmeny li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-top: 0.5px solid rgb(130, 130, 130);
+}
+
+label::after {
+    content: "+";
+}
+
+.dragspelsmeny li label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 20px 20px 0 20px;
+    font-size: 1.5rem;
+    font-weight: 320;
+    letter-spacing: 0.5px;
+}
+
+.dragspelsmeny .dragspel-innehåll {
+    padding: 0 20px;
+    line-height: 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.9s ease-in-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.dragspelsmeny input[type="checkbox"]:checked+label+.dragspel-innehåll {
+    max-height: 1500px;
+}
+
+.dragspelsmeny input[type="checkbox"]:checked+label::after {
+    content: "-";
+}
+
+/* ========= FÖRSTA FLIK ========= */
+
+.dragspelsmeny .första-flik-bild-text-behållare{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 3rem;
+}
+
+.första-flik-bild-text-behållare figure, .första-flik-bild-text-behållare section{
+    margin-top: 1rem;
+}
+
+.dragspelsmeny img {
+    height: 10rem;
+    object-fit: cover;
+}
+
+.första-flik-bild-text-behållare section {
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+}
+
+.första-flik-bild-text-behållare section p {
+    margin-top: 0.5rem;
+}
+
+.första-flik-bild-text-behållare section h2 {
+    font-size: 1.1rem;
+}
+
+
+/* ========= ANDRA FLIK ========= */
+
+.andra-flik-textinnehåll p {
+    margin: 1rem 0;
+}
+
+/* ========= TREDJE FLIK ========= */
+
+.tredje-flik-innehåll h4 {
+    border: 1px solid #000;
+}
+
+.pronation-behållare {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.pronation-behållare p{
+    max-width: 295px;
+}
+
+.pronation-sektion-titel{
+    margin-top: 1rem;
+}
+
+
+.pronation-sektion-titel span {
+    font-weight: normal;
+}
+
+
+/* ========= FJÄRDE FLIK ========= */
+
+.fjärde-flik-text-behållare{
+    max-height: 10rem;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    padding-right: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
